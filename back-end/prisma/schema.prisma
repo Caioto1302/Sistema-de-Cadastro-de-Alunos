@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Usuarios {
+  id        String      @id @default(uuid())
+  nome      String
+  email     String      @unique
+  senha     String
+  ehAdm     Boolean     @default(false)
+  chamados  Chamados[]
+  Respostas Respostas[]
+}
+
+enum Status {
+  Aberto      @map("Aberto")
+  EmAndamento @map("Em andamento")
+  Concluido   @map("Concluído")
+}
+
+model Chamados {
+  id          String      @id @default(uuid())
+  titulo      String
+  descricao   String
+  status      Status      @default(Aberto)
+  dataCriacao DateTime    @default(now())
+  usuarioId   String
+  usuarios    Usuarios    @relation(fields: [usuarioId], references: [id])
+  Respostas   Respostas[]
+}
+
+model Respostas {
+  id         String   @id @default(uuid())
+  mensagem   String
+  chamadoId  String
+  dataEnvio  DateTime @default(now())
+  usuarioId  String
+  chamado_id Chamados @relation(fields: [chamadoId], references: [id], onDelete: Cascade)
+  usuario_id Usuarios @relation(fields: [usuarioId], references: [id])
+}
