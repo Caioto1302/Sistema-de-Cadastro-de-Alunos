@@ -1,0 +1,32 @@
+name: Pipeline de Integracao Continua
+
+# O pipeline será executado automaticamente quando ocorrer um push
+on: [push]
+
+jobs:
+  execucao-automatica:
+    runs-on: ubuntu-latest # Ambiente onde o pipeline vai rodar
+
+    steps:
+      # Passo 0: Baixar o código do repositório (Necessário para listar os arquivos e rodar scripts)
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      # Requisito A: Exibir mensagem no console
+      - name: Exibir Mensagem
+        run: echo "🚀 Pipeline iniciado! Detectamos um novo push no repositório."
+
+      # Requisito B: Listar arquivos do projeto
+      - name: Listar Arquivos do Projeto
+        run: |
+          echo "📁 Estrutura de arquivos atual do repositório:"
+          ls -la
+
+      # Requisito C: Executar script do projeto / Validação
+      - name: Executar Script de Validação
+        run: |
+          echo "⚙️ Executando validação do projeto..."
+          # Aqui estamos simulando um script inline. 
+          # Se você tiver um arquivo de script real no projeto, basta chamá-lo assim:
+          # bash ./meu_script.sh ou npm run build
+          echo "✅ Execução validada com sucesso!"
