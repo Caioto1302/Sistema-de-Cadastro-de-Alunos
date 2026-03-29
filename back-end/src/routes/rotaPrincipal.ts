@@ -4,8 +4,12 @@ export async function rotaPrincipal(app: FastifyInstance) {
   // GET - Teste
 
   app.get("/", async (request, reply) => {
-    console.log("deu bom")
+    try {
+      console.log("deu bom")
 
-    return reply.sendFile("inicio.html");
+      return reply.sendFile("login.html");
+    } catch (err) {
+      console.log(err);
+    }
   });
 }
