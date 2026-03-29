@@ -26,7 +26,5 @@ jobs:
       - name: Executar Script de Validação
         run: |
           echo "⚙️ Executando validação do projeto..."
-          # Aqui estamos simulando um script inline. 
-          # Se você tiver um arquivo de script real no projeto, basta chamá-lo assim:
-          # bash ./meu_script.sh ou npm run build
+          npm run dev
           echo "✅ Execução validada com sucesso!"
