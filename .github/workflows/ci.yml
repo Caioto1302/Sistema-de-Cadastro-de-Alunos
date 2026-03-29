@@ -30,5 +30,8 @@ jobs:
       - name: Executar Script de Validação
         run: |
           echo "⚙️ Executando validação do projeto..."
-          npm run dev
+          npm run dev &
+          SERVER_PID=$!
+          sleep 5
+          kill $SERVER_PID
           echo "✅ Execução validada com sucesso!"
