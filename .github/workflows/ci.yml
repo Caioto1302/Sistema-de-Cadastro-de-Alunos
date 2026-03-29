@@ -22,7 +22,11 @@ jobs:
           echo "📁 Estrutura de arquivos atual do repositório:"
           ls -la
 
-      # Requisito C: Executar script do projeto / Validação
+      # Requisito C: Instalar as dependências
+      - name: Instalar dependências
+        run: npm install   
+
+      # Requisito D: Executar script do projeto / Validação
       - name: Executar Script de Validação
         run: |
           echo "⚙️ Executando validação do projeto..."
