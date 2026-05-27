@@ -41,3 +41,5 @@ O fluxo do pipeline ocorre da seguinte forma:
     - Executar script do projeto
     - Listar arquivos
 6. O pipeline finaliza indicando sucesso ou falha
+
+## 📜 Gerência de Configuração
