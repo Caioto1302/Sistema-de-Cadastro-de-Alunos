@@ -113,7 +113,7 @@ export async function autenticacaoRotas(app: FastifyInstance) {
           expiresIn: '1h',
         })
 
-        const link = `http://127.0.0.1:5501/front-End/pages/redefinir-senha.html?token=${token}`
+        const link = `http://localhost:5173/pages/redefinir-senha.html?token=${token}`
 
         await enviaEmail(
           request.body.email,

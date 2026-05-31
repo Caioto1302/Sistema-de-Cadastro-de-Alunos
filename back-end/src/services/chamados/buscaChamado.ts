@@ -6,7 +6,21 @@ export async function buscaChamado(id: string) {
       id,
     },
     include: {
-      Respostas: true,
+      Respostas: {
+        include: {
+          usuario_id: {
+            select: {
+              nome: true
+            }
+          }
+        }
+      },
+      usuarios: {
+        select: {
+          nome: true,
+          email: true
+        }
+      }
     },
   })
 

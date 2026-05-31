@@ -23,15 +23,28 @@ jobs:
           ls -la
 
       # Requisito C: Instalar as dependências
-      - name: Instalar dependências
-        run: npm install   
+      - name: Instalar dependências (Back-end)
+        working-directory: ./back-end
+        run: npm install
+
+      - name: Instalar dependências (Front-end)
+        working-directory: ./front-End
+        run: npm install
 
       # Requisito D: Executar script do projeto / Validação
-      - name: Executar Script de Validação
+      - name: Executar Script de Validação (Back-end)
+        working-directory: ./back-end
         run: |
-          echo "⚙️ Executando validação do projeto..."
+          echo "⚙️ Executando validação do back-end..."
           npm run dev &
           SERVER_PID=$!
           sleep 5
           kill $SERVER_PID
-          echo "✅ Execução validada com sucesso!"
+          echo "✅ Back-end validado com sucesso!"
+
+      - name: Executar Script de Validação (Front-end)
+        working-directory: ./front-End
+        run: |
+          echo "⚙️ Executando validação do front-end (Vite Build)..."
+          npm run build
+          echo "✅ Front-end validado com sucesso!"

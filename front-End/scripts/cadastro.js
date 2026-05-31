@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+import { API_BASE_URL } from './config.js';
+
 document
   .querySelector('#cadastro-form')
   .addEventListener('submit', async (event) => {
@@ -15,7 +16,7 @@ document
     }
 
     try {
-      const response = await fetch('http://localhost:5000/cadastro', {
+      const response = await fetch(`${API_BASE_URL}/cadastro`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,7 +26,7 @@ document
 
       if (response.ok) {
         alert('Usuário cadastrado com sucesso!')
-        window.location.href = 'login.html' // Redireciona para a página de login
+        window.location.href = '/index.html' // Redireciona para a página de login
       } else {
         const error = await response.json()
         alert(`Erro: ${error.message}`)

@@ -1,0 +1,1 @@
+document.addEventListener(`DOMContentLoaded`,()=>{let e=[`index.html`,``,`cadastro.html`,`recuperar-senha.html`,`redefinir-senha.html`],t=window.location.pathname.split(`/`).pop();e.includes(t)||localStorage.getItem(`token`)||(window.location.href=`/index.html`)});

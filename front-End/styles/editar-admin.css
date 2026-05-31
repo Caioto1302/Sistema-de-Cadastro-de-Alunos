@@ -1,269 +1,90 @@
-@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
-@import url('https://fonts.cdnfonts.com/css/beyonders');
+/* Herda estilos base de detalhes-chamado para consistência */
+@import url('./detalhes-chamado.css');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f1f2f6;
-}
-
-.navbar {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 35px;
-    letter-spacing: 0.5px;
-    background-color: #D9D9D9;
-}
-
-.nav-logo {
-    font-size: 20px;
-    font-family: 'Beyonders', sans-serif;
-    text-decoration: none;
-    color: #000000;
-} 
-
-.nav-menu {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    gap: 1.3rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu > li > a {
-    font-size: 20px;
-    font-weight: 650;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-    color: #000000;
-    padding: 0.5rem 1rem;
-    transition: background 0.1s;
-}
-
-.nav-menu > li > a:hover {
-    background: #c0c0c0; 
-    border-radius: 6px;
-}
-
-.nav-submenu {
-    list-style-type: none;
-    display: none;
-    position: absolute;
-    background: #D9D9D9;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-top: 0.3rem;
-    min-width: 180px;
-    z-index: 100;
-    padding: 0.5rem 0 0.5rem 0;
-    min-width: unset;
-}
-
-.nav-sub-item {
-    position: relative;
-}
-
-.nav-sub-item:hover .nav-submenu {
-    display: block;
-}
-
-.nav-sub-chamados a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #000;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.nav-sub-chamados a:hover {
-    background: #c0c0c0;
-    border-radius: 6px;
-}
-
-.nav-chamados .arrow-down {
-    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.nav-sub-item:hover .arrow-down {
-    transform: rotate(180deg);
-}
-
+/* Layout principal estendido para 1200px para o grid */
 main {
-    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
 }
 
-.titulo {
-    font-family: 'Open Sauce One';
+/* O grid-container já está definido em detalhes-chamado.css, 
+   aqui apenas garantimos ajustes específicos se necessário */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    align-items: start;
 }
 
-.titulo h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
+/* Ajustes específicos para o card de nova resposta */
+#nova-resposta-card {
+    margin-top: 2rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    border-radius: 16px;
+    padding: 2rem;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 180px auto 0 auto;
-    padding: 60px 40px 60px 40px;
-    background: #D9D9D9;
-    border-radius: 18px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-    gap: 30px;
+#nova-resposta-card .card-title {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    font-family: var(--font-title);
+    margin-bottom: 1.5rem;
+    text-align: left;
 }
 
-#detalhes-chamado-lista {
-    background-color: #ffffff;
-    border-radius: 18px;
-    list-style-type: none;
-    box-shadow: none;
-    border: 1.5px solid #ececec;
-    border-radius: 14px;
-    padding: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#respostas-lista {
-    background-color: #ffffff;
-    border-radius: 18px;
-    list-style-type: none;
-    box-shadow: none;
-    border: 1.5px solid #ececec;
-    border-radius: 14px;
-    padding: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#form-adicionar-resposta, #form-status {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#form-status {
-  gap: 10px;
-}
-
-#form-adicionar-resposta {
-  gap: 10px;
-}
-
-.status {
-  display: flex;
-  gap: 20px;
-}
-
-.status select {
-  border-radius: 9px;
-  border: 1.5px solid #ececec;
-}
-
-.botoes {
-  display: flex;
-  justify-content: space-between;
-}
-
-.deletar-resposta-btn {
-  color: red;
-}
-
-.nova-resposta {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.nova-resposta textarea{
-    margin: 0.6rem 0;
-    padding: 0.8rem 1.2rem;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 6px #0000001c;
-}
-
-.nova-resposta textarea::placeholder {
-    font-family: sans-serif;
-    font-size: 13px;
-}
-
-#nova-resposta {
-  border-radius: 9px;
-}
-
-button {
-    height: 45px;
-    background-color: rgba(128, 128, 129, 0.2);
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    font-size: 10px;
-    padding: 5px;
-}
-
-footer {
-    justify-content: space-between;
-    width: 100%; 
-    top: 0;
-    left: 0;
-    margin-top: 4rem;
-    padding: 1rem 1.5rem;
-    background-color: #D9D9D9;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
- 
-
-.footer-lista {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1rem;
-    list-style: none;
-}
-
-.footer-link {
-    color: rgb(0, 0, 0);
-    transition: all 0.4s;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: #7f37c9;
-}
-
-#footer-copyright {
-    display: flex;
-    justify-content: center;
-    color:  #000000;
+/* Estilos para os formulários */
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
     font-size: 0.9rem;
-    padding: 2rem 0 0.5rem 0;
-    font-weight: 150;
+    text-transform: uppercase;
+}
+
+/* Estilo customizado para o select */
+select.form-control {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+textarea.form-control {
+    height: auto;
+    padding: 15px 20px;
+    resize: vertical;
+    background-color: var(--bg-primary);
+    line-height: 1.6;
+}
+
+textarea.form-control:focus {
+    border-color: var(--accent-yellow);
+}
+
+.btn-primary {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Sidebar sticky para o admin */
+.sidebar {
+    position: sticky;
+    top: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        position: static;
+    }
 }

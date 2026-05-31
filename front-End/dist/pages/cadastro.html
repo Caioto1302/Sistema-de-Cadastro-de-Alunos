@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - UniClass</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script type="module" crossorigin src="/assets/cadastro-Dl0V4x6v.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-Dezn_h7o.js">
+  <link rel="modulepreload" crossorigin href="/assets/config-DPSuE5lU.js">
+  <link rel="modulepreload" crossorigin href="/assets/proteger-pagina-CCLhLS-N.js">
+  <link rel="stylesheet" crossorigin href="/assets/cadastro-CC9oatFu.css">
+  <link rel="stylesheet" crossorigin href="/assets/global-DNofd_KG.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <p class="nav-logo">UniClass</p>
+        </nav>
+    </header>
+    <main class="main-auth">
+        <div class="card">
+            <div class="card-icon">
+                <i class='bx bxs-user-plus'></i>
+            </div>
+            <h1 class="card-title">Crie sua conta</h1>
+            <form id="cadastro-form">
+                <div class="form-group form-group-inline">
+                    <input id="firstname" type="text" name="firstname" class="form-control" placeholder="Nome" required>
+                    <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Sobrenome" required>
+                </div>
+                <div class="form-group">
+                    <input id="email" type="email" name="email" class="form-control" placeholder="E-mail" required>
+                    <i class='bx bxs-envelope form-icon'></i>
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" name="password" class="form-control" placeholder="Senha (mín. 6 caracteres)" minlength="6" required>
+                    <i class='bx bxs-lock-alt form-icon'></i>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <div class="links-extras">
+                    <span>Já tem conta? <a href="../index.html">Faça o login</a></span>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
+    </footer>
+</body>
+</html>

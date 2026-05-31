@@ -1,0 +1,1 @@
+document.addEventListener(`DOMContentLoaded`,()=>{let e=document.getElementById(`logout-link`);e&&e.addEventListener(`click`,function(e){e.preventDefault(),localStorage.removeItem(`token`),window.location.href=`/index.html`})});

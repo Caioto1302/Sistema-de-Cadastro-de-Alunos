@@ -1,0 +1,1 @@
+document.addEventListener(`DOMContentLoaded`,()=>{let e=localStorage.getItem(`token`);if(!e){window.location.href=`/index.html`;return}JSON.parse(atob(e.split(`.`)[1])).ehAdm||(alert(`Acesso restrito a administradores!`),window.location.href=`inicio.html`)});

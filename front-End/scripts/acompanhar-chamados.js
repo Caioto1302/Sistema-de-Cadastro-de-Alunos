@@ -1,73 +1,66 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-undef */
+import { API_BASE_URL, renderErrorMessage } from './config.js';
+
 document.addEventListener('DOMContentLoaded', async () => {
   const token = localStorage.getItem('token')
   const listaChamados = document.querySelector('#chamados')
 
   try {
-    const response = await fetch('http://localhost:5000/chamados', {
+    const response = await fetch(`${API_BASE_URL}/chamados`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
     })
 
     if (!response.ok) {
-      throw new Error('Erro ao buscar chamados')
+      if (response.status === 404) {
+        listaChamados.innerHTML = '<h2 style="text-align: center; color: var(--text-muted); margin-top: 2rem; grid-column: 1 / -1;">Nenhum chamado em aberto</h2>';
+        return;
+      }
+      throw new Error('Erro ao buscar chamados');
     }
 
-    const chamados = await response.json()
+    const chamados = await response.json();
 
     if (chamados.length === 0) {
-      listaChamados.innerHTML =
-        '<h1>Nenhum chamado encontrado.</h1>'
-      return
+      listaChamados.innerHTML = '<h2 style="text-align: center; color: var(--text-muted); margin-top: 2rem; grid-column: 1 / -1;">Nenhum chamado em aberto</h2>';
+      return;
     }
 
     function traduzirStatus(status) {
     switch (status) {
-      case 'EmAndamento':
-        return 'Em andamento'
-      case 'Aberto':
-        return 'Aberto'
-      case 'Concluido':
-        return 'Concluído'
-      default:
-        return status
+        case 'EmAndamento': return 'Em Andamento';
+        case 'Aberto': return 'Aberto';
+        case 'Concluido': return 'Concluído';
+        default: return status;
     }
-  }
+    }
+
+    function getStatusClass(status) {
+        return `status-${status.toLowerCase()}`;
+    }
 
     listaChamados.innerHTML = chamados
       .map(
         (chamado) => `
-        <div class="chamados-bloco">
-          <div>
-            <h1>${chamado.titulo}</h1>
-            <p>${traduzirStatus(chamado.status)}</p>
-            <p>${new Date(chamado.dataCriacao).toLocaleDateString('pt-BR', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit',
-            })}</p>
-          </div>
-
-          <div class="chamados-sub-bloco-2">
-            <button class="ver-detalhes-btn" data-id="${chamado.id}">Ver detalhes</button>
-          </div>
+        <div class="chamado-card">
+            <div class="chamado-header">
+                <h3 class="chamado-titulo">${chamado.titulo}</h3>
+                <span class="chamado-status ${getStatusClass(chamado.status)}">${traduzirStatus(chamado.status)}</span>
+            </div>
+            <p class="chamado-id">#${chamado.id}</p>
+            <p class="chamado-data">Criado em: ${new Date(chamado.dataCriacao).toLocaleDateString('pt-BR')}</p>
+            <a href="detalhes-chamado.html?id=${chamado.id}" class="btn-details ver-detalhes-btn" data-id="${chamado.id}">
+                Ver Detalhes <i class='bx bx-right-arrow-alt'></i>
+            </a>
         </div>
     `,
       )
       .join('')
       
-      document.querySelectorAll('.ver-detalhes-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-          const chamadoId = this.getAttribute('data-id')
-          window.location.href = `detalhes-chamado.html?id=${chamadoId}`
-        })
-      })
   } catch (err) {
-    listaChamados.innerHTML = `<h1>Erro ao carregar chamados.</h1>`
+    listaChamados.innerHTML = renderErrorMessage(
+      'Erro ao carregar chamados',
+      err.message || 'Houve um problema ao buscar os dados.'
+    );
   }
 })
-

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Ajuda</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" crossorigin href="/assets/ajuda-B__3BzoN.css">
+  <link rel="stylesheet" crossorigin href="/assets/global-DNofd_KG.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="inicio.html" class="nav-logo" style="font-size:2rem;display:flex;align-items:center;gap:8px;">
+                <i class='bx bxs-help-circle' style="color:var(--accent-yellow);font-size:2.2rem;"></i>
+                UniClass
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-pag"><a href="gerenciar-admin.html">Gerenciamento (admin)</a></li>
+                <li class="nav-sub-item">
+                    <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li class="nav-sub-chamados"><a href="abertura-chamado.html">Abrir Chamado</a></li>
+                        <li class="nav-sub-chamados"><a href="acompanhar-chamados.html">Acompanhar Chamados</a></li>
+                    </ul>
+                </li>
+                <li class="nav-pag"><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li class="nav-pag"><a href="#" class="active">Ajuda</a></li>
+                <li class="nav-pag"><a href="#" id="logout-link">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="ajuda-hero">
+            <i class='bx bxs-help-circle'></i>
+            <h1>Central de Ajuda <span class="ajuda-highlight">(FAQ)</span></h1>
+            <p class="ajuda-desc">Encontre respostas rápidas para as dúvidas mais comuns sobre o UniClass.</p>
+        </section>
+        <section class="ajuda-faq">
+            <div class="faq-card">
+                <h3><i class='bx bx-plus-circle'></i> Como abro um novo chamado?</h3>
+                <p>Vá em <b>Abrir Chamado</b> no menu, preencha o formulário e clique em <b>Enviar</b>.</p>
+            </div>
+            <div class="faq-card">
+                <h3><i class='bx bx-list-ul'></i> Como acompanho o status do meu chamado?</h3>
+                <p>Na página <b>Acompanhar Chamados</b> você vê todos os seus chamados e pode acompanhar o status e respostas.</p>
+            </div>
+            <div class="faq-card">
+                <h3><i class='bx bx-lock-alt'></i> Esqueci minha senha, e agora?</h3>
+                <p>Clique em <b>Esqueceu sua senha?</b> na tela de login e siga as instruções enviadas por e-mail.</p>
+            </div>
+        </section>
+        <section class="ajuda-contato">
+            <h2>Ainda precisa de ajuda?</h2>
+            <p>Abra um chamado ou entre em contato:</p>
+            <p><i class='bx bx-envelope'></i> <strong>E-mail:</strong> andradearthur000@gmail.com</p>
+        </section>
+    </main>
+    <footer>
+        <ul class="footer-lista">
+            <li><a href="inicio.html" class="footer-link">Início</a></li>
+            <li><a href="abertura-chamado.html" class="footer-link">Abrir Chamado</a></li>
+            <li><a href="acompanhar-chamados.html" class="footer-link">Acompanhar Chamados</a></li>
+            <li><a href="#" class="footer-link">Ajuda</a></li>
+            <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
+        </ul>
+        <div id="footer-copyright">
+            UniClass &copy; 2025 - Todos os direitos reservados
+        </div>
+    </footer>
+</body>
+</html>

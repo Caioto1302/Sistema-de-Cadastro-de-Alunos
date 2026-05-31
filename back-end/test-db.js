@@ -1,0 +1,1 @@
+import { PrismaClient } from './generated/prisma/client.js'; const prisma = new PrismaClient(); async function main() { const chamados = await prisma.chamados.findMany({ include: { usuarios: true } }); console.log(JSON.stringify(chamados, null, 2)); } main().catch(console.error).finally(() => prisma.$disconnect());

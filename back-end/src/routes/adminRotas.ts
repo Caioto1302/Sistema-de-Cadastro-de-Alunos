@@ -13,6 +13,10 @@ import { atualizaResposta } from '../services/respostas/atualizaResposta'
 import { deletaResposta } from '../services/respostas/deletaResposta'
 import { enviaEmail } from '../email_services/enviaEmail'
 
+import { buscaUsuarios } from '../services/usuarios/buscaUsuarios'
+import { atualizaUsuario } from '../services/usuarios/atualizaUsuario'
+import { deletaUsuario } from '../services/usuarios/deletaUsuario'
+
 export async function adminRotas(app: FastifyInstance) {
   app.register(async (rotasAdmin) => {
     rotasAdmin.addHook('preHandler', autenticar)
@@ -37,7 +41,7 @@ export async function adminRotas(app: FastifyInstance) {
 
         const usuario = await buscaUsuario(chamado.usuarioId)
 
-        const link = `http://127.0.0.1:5501/front-end/pages/acompanhar-chamados.html`
+        const link = `http://localhost:5173/pages/acompanhar-chamados.html`
 
         await enviaEmail(
           usuario.email,
@@ -127,7 +131,7 @@ export async function adminRotas(app: FastifyInstance) {
 
         const chamadoRespondido = await criaResposta(request)
 
-        const link = `http://127.0.0.1:5501/front-end/pages/acompanhar-chamados.html`
+        const link = `http://localhost:5173/pages/acompanhar-chamados.html`
 
         await enviaEmail(
           usuario.email,
@@ -211,5 +215,88 @@ export async function adminRotas(app: FastifyInstance) {
         }
       },
     )
+
+    // GET - Puxa todos os usuários
+
+    rotasAdmin.get('/usuarios', async (request, reply) => {
+      try {
+        const usuarios = await buscaUsuarios()
+        return reply.status(200).send(usuarios)
+      } catch (err) {
+        if (err instanceof Error && err.message === 'Não há usuários no sistema') {
+          return reply.status(404).send({ message: err.message })
+        }
+        console.log(err)
+        return reply.status(500).send({ message: 'Erro interno no servidor' })
+      }
+    })
+
+    // GET - Puxa um único usuário
+
+    rotasAdmin.get<{ Params: { id: string } }>('/usuarios/:id', async (request, reply) => {
+      try {
+        const idValido = validaId(request.params.id)
+        const usuario = await buscaUsuario(idValido)
+        return reply.status(200).send({
+          id: usuario.id,
+          nome: usuario.nome,
+          email: usuario.email,
+          ehAdm: usuario.ehAdm
+        })
+      } catch (err) {
+        if (err instanceof z.ZodError) {
+          return reply.status(400).send({ message: 'Formato de id inválido' })
+        } else if (err instanceof Error && err.message === 'Este usuário não existe') {
+          return reply.status(404).send({ message: err.message })
+        }
+        console.log(err)
+        return reply.status(500).send({ message: 'Erro interno no servidor' })
+      }
+    })
+
+    // PUT - Atualiza nome, e-mail ou senha do usuário
+
+    rotasAdmin.put<{
+      Body: { nome?: string; email?: string; senha?: string }
+      Params: { id: string }
+    }>('/usuarios/:id', async (request, reply) => {
+      try {
+        const idValido = validaId(request.params.id)
+        const schema = z.object({
+          nome: z.string().min(3, 'Nome deve ter no mínimo 3 caracteres').optional(),
+          email: z.string().email('E-mail inválido').optional(),
+          senha: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres').optional()
+        })
+        const dadosValidados = schema.parse(request.body)
+
+        const usuarioAtualizado = await atualizaUsuario(idValido, dadosValidados)
+        return reply.status(200).send(usuarioAtualizado)
+      } catch (err) {
+        if (err instanceof z.ZodError) {
+          return reply.status(400).send({ message: err.errors[0].message })
+        } else if (err instanceof Error && err.message === 'Este usuário não existe') {
+          return reply.status(404).send({ message: err.message })
+        }
+        console.log(err)
+        return reply.status(500).send({ message: 'Erro interno no servidor' })
+      }
+    })
+    // DELETE - Deleta um usuário
+
+    rotasAdmin.delete<{ Params: { id: string } }>('/usuarios/:id', async (request, reply) => {
+      try {
+        const idValido = validaId(request.params.id)
+        await deletaUsuario(idValido)
+        return reply.status(200).send({ message: 'Usuário excluído com sucesso!' })
+      } catch (err) {
+        if (err instanceof z.ZodError) {
+          return reply.status(400).send({ message: 'Formato de id inválido' })
+        } else if (err instanceof Error && err.message === 'Este usuário não existe') {
+          return reply.status(404).send({ message: err.message })
+        }
+        console.log(err)
+        return reply.status(500).send({ message: 'Erro interno no servidor' })
+      }
+    })
   })
 }

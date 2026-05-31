@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abertura de Chamado - UniClass</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script type="module" crossorigin src="/assets/aberturaChamado-BWFvvGM1.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-Dezn_h7o.js">
+  <link rel="modulepreload" crossorigin href="/assets/config-DPSuE5lU.js">
+  <link rel="modulepreload" crossorigin href="/assets/logout-B0Sq76Co.js">
+  <link rel="modulepreload" crossorigin href="/assets/proteger-pagina-CCLhLS-N.js">
+  <link rel="stylesheet" crossorigin href="/assets/aberturaChamado-CpQN29Hf.css">
+  <link rel="stylesheet" crossorigin href="/assets/global-DNofd_KG.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="inicio.html" class="nav-logo">UniClass</a>
+
+            <ul class="nav-menu">
+                <li class="nav-pag"><a href="gerenciar-admin.html">Gerenciamento (admin)</a></li>
+                <li class="nav-sub-item">
+                    <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li class="nav-sub-chamados"><a href="#" class="active">Abrir Chamado</a></li>
+                        <li class="nav-sub-chamados"><a href="acompanhar-chamados.html">Acompanhar Chamados</a></li>
+                    </ul>
+                </li>
+                <li class="nav-pag"><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li class="nav-pag"><a href="ajuda.html">Ajuda</a></li>
+                <li class="nav-pag"><a href="#" id="logout-link">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-form">
+        <div class="card">
+            <div class="card-icon">
+                <i class='bx bxs-file-plus'></i>
+            </div>
+            <h1 class="card-title">Abrir Novo Chamado</h1>
+            <p class="card-description">
+                Descreva seu problema ou solicitação em detalhes para que possamos ajudar.
+            </p>
+            <form id="chamado-form">
+                <div class="form-group">
+                    <label for="titulo">Título do Chamado</label>
+                    <input id="titulo" type="text" name="titulo" class="form-control" placeholder="Ex: Problema com a nota da P1" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição do Problema</label>
+                    <textarea id="descricao" name="descricao" class="form-control" placeholder="Descreva detalhadamente o que está acontecendo..." required rows="6"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Chamado</button>
+            </form> 
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer-conteudo">
+            <ul class="footer-lista">
+                <li><a href="inicio.html" class="footer-link">Inicio</a></li>
+                <li><a href="#" class="footer-link">Abrir Chamado</a></li>
+                <li><a href="acompanhar-chamados.html" class="footer-link">Acompanhar Chamados</a></li>
+                <li><a href="ajuda.html" class="footer-link">Ajuda</a></li>
+                <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
+            </ul>
+        </div>
+        
+        <div id="footer-copyright">
+            UniClass &#169; 2025 all rights reserved
+        </div>
+    </footer>
+    
+</body>
+</html>

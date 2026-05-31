@@ -3,57 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro - UniClass</title>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/cadastro.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="../scripts/proteger-pagina.js"></script>
+    <script type="module" src="../scripts/proteger-pagina.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <p>UniClass</p>
+            <a href="../index.html" class="nav-logo">UniClass</a>
         </nav>
     </header>
-    
-    <main class="container">
-        <form id="cadastro-form">
-            <h1>CADASTRO</h1>
-            <div class="input-group">
-                <div class="name-fields">
-                    <div class="input-box">
-                        <label for="firstname"></label>
-                        <input id="firstname" type="text" name="firstname" placeholder="Nome" class="meu-input" required>
-                        <i class='bx bxs-user'></i>
-                    </div>
-
-                    <div class="input-box">
-                        <input id="lastname" type="text" name="lastname" placeholder="Sobrenome" class="meu-input" required>
-                        <label for="lastname"></label>
-                    </div>
-                </div>
-
-                <div class="input-box">
-                    <label for="email"></label>
-                    <input id="email" type="email" name="email" placeholder="E-mail" class="meu-input" required>
-                    <i class='bx bxs-envelope'></i>
-                </div>
-
-                <div class="input-box">
-                    <label for="password"></label>
-                    <input id="password" type="password" name="password" placeholder="Senha" class="meu-input" minlength="6"  required>
-                    <i class='bx bxs-lock-alt'></i>
-                </div>
-            </div>  
-
-            <button type="submit">Cadastrar</button>
-
-            <div class="login">
-                <p>Já tem conta? <a href="login.html">Faça o login</a></p>
+    <main class="main-auth">
+        <div class="card">
+            <div class="card-icon">
+                <i class='bx bxs-user-plus'></i>
             </div>
-
-        </form>
+            <h1 class="card-title">Crie sua conta</h1>
+            <form id="cadastro-form">
+                <div class="form-group form-group-inline">
+                    <input id="firstname" type="text" name="firstname" class="form-control" placeholder="Nome" required>
+                    <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Sobrenome" required>
+                </div>
+                <div class="form-group">
+                    <input id="email" type="email" name="email" class="form-control" placeholder="E-mail" required>
+                    <i class='bx bxs-envelope form-icon'></i>
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" name="password" class="form-control" placeholder="Senha (mín. 6 caracteres)" minlength="6" required>
+                    <i class='bx bxs-lock-alt form-icon'></i>
+                    <i class='bx bx-hide toggle-password'></i>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <div class="links-extras">
+                    <span>Já tem conta? <a href="../index.html">Faça o login</a></span>
+                </div>
+            </form>
+        </div>
     </main>
-
-    <script src="../scripts/cadastro.js"></script>
+    <footer>
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
+    </footer>
+    <script type="module" src="../scripts/cadastro.js"></script>
+    <script type="module" src="../scripts/toggle-password.js"></script>
 </body>
 </html>

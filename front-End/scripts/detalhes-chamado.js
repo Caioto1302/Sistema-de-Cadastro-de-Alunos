@@ -1,4 +1,18 @@
-/* eslint-disable no-undef */
+import { API_BASE_URL, renderErrorMessage } from './config.js';
+
+function traduzirStatus(status) {
+    switch (status) {
+        case 'EmAndamento': return 'Em Andamento';
+        case 'Aberto': return 'Aberto';
+        case 'Concluido': return 'Concluído';
+        default: return status;
+    }
+}
+
+function getStatusClass(status) {
+    return `status-${status.toLowerCase()}`;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search)
   const chamadoId = params.get('id')
@@ -8,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const respostasLista = document.getElementById('respostas-lista')
 
   try {
-    const response = await fetch(`http://localhost:5000/chamado/${chamadoId}`, {
+    const response = await fetch(`${API_BASE_URL}/chamado/${chamadoId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -19,69 +33,60 @@ document.addEventListener('DOMContentLoaded', async () => {
     const chamado = await response.json()
 
     detalhesLista.innerHTML = `
-      <div class="chamado">
-        <li><strong>Título:</strong> ${chamado.titulo}</li>
-        <li><strong>Descrição:</strong> ${chamado.descricao}</li>
-        <li><strong>Status:</strong> ${traduzirStatus(chamado.status)}</li>
-        <li><strong>Data de criação:</strong> ${new Date(
-          chamado.dataCriacao,
-        ).toLocaleString('pt-BR', {
-          day: '2-digit',
-          month: '2-digit',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-        })}</li>
+      <div class="detalhes-card">
+        <div class="detalhes-header">
+            <h1 class="detalhes-titulo">${chamado.titulo}</h1>
+            <span class="detalhes-status ${getStatusClass(chamado.status)}">${traduzirStatus(chamado.status)}</span>
+        </div>
+        <div class="detalhes-meta">
+            <span><i class='bx bxs-id-card'></i> <strong>ID:</strong> #${chamado.id}</span>
+            <span><i class='bx bxs-calendar'></i> <strong>Criado em:</strong> ${new Date(chamado.dataCriacao).toLocaleDateString('pt-BR')}</span>
+        </div>
+        <div class="detalhes-descricao">
+            <span class="detalhes-descricao-label">Descrição do Problema:</span>
+            <p>${chamado.descricao}</p>
+        </div>
       </div>
     `
 
     if (chamado.Respostas && chamado.Respostas.length > 0) {
       respostasLista.innerHTML = chamado.Respostas.map(
         (resposta) => `
-          <ul class="resposta">
-            <li><strong>Mensagem:</strong> ${resposta.mensagem}</li>
-            <li><strong>Data da resposta</strong>
-              ${new Date(resposta.dataEnvio).toLocaleString('pt-BR', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </li>
-          </ul>
-          <br>
+          <div class="resposta-card">
+              <div class="resposta-header">
+                  <span class="resposta-autor">
+                      <i class='bx bxs-user-circle'></i>
+                      ${resposta.usuario_id.nome} (Admin)
+                  </span>
+                  <span class="resposta-data">
+                      ${new Date(resposta.dataEnvio).toLocaleString('pt-BR')}
+                  </span>
+              </div>
+              <div class="resposta-conteudo">
+                  <p>${resposta.mensagem}</p>
+              </div>
+          </div>
           `,
       ).join('')
     } else {
-      respostasLista.innerHTML = '<p>Não respondido</p>'
+      respostasLista.innerHTML = '<p style="text-align: center; color: var(--text-muted);">Este chamado ainda não possui respostas.</p>'
     }
   } catch (err) {
-    detalhesLista.innerHTML = '<li>Erro ao carregar detalhes do chamado.</li>'
-    respostasLista.innerHTML = ''
+    detalhesLista.innerHTML = renderErrorMessage(
+      'Erro ao carregar detalhes',
+      err.message || 'Não foi possível buscar os dados do chamado.'
+    );
+    respostasLista.innerHTML = '';
   }
 
   // Função para traduzir status
-  function traduzirStatus(status) {
-    switch (status) {
-      case 'EmAndamento':
-        return 'Em andamento'
-      case 'Aberto':
-        return 'Aberto'
-      case 'Concluido':
-        return 'Concluído'
-      default:
-        return status
-    }
-  }
-
   const btnDeletar = document.getElementById('deletar-chamado-btn')
   if (btnDeletar) {
     btnDeletar.addEventListener('click', async () => {
       if (confirm('Tem certeza que deseja deletar este chamado?')) {
         try {
           const response = await fetch(
-            `http://localhost:5000/chamados/${chamadoId}`,
+            `${API_BASE_URL}/chamados/${chamadoId}`,
             {
               method: 'DELETE',
               headers: {

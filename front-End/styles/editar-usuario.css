@@ -1,0 +1,36 @@
+/* CSS Específico para Edição de Usuários */
+
+.edit-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 1rem;
+}
+
+/* Garantir que o formulário fique alinhado em coluna */
+.form-edit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Alinhamento em linha (flex-row) para os botões de ação */
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn-cancel {
+    background-color: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.btn-cancel:hover {
+    background-color: var(--bg-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}

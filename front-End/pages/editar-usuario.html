@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário - Admin</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/editar-usuario.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="inicio.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+                <i class='bx bxs-graduation' style="color:var(--accent-yellow);font-size:2.2rem;"></i>
+                UniClass
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-sub-item">
+                    <a href="#" class="active">Admin <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li><a href="gerenciar-admin.html">Gerenciar Chamados</a></li>
+                        <li><a href="gerenciar-usuarios.html">Gerenciar Usuários</a></li>
+                    </ul>
+                </li>
+                <li class="nav-sub-item">
+                    <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li class="nav-sub-chamados"><a href="abertura-chamado.html">Abrir Chamado</a></li>
+                        <li class="nav-sub-chamados"><a href="acompanhar-chamados.html">Acompanhar Chamados</a></li>
+                    </ul>
+                </li>
+                <li class="nav-pag"><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li class="nav-pag"><a href="ajuda.html">Ajuda</a></li>
+                <li class="nav-pag"><a href="#" id="logout-link">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="edit-container">
+        <!-- Reutilizando a classe .card global, que cuida da caixa principal -->
+        <div class="card">
+            <div class="card-icon">
+                <i class='bx bxs-user-detail'></i>
+            </div>
+            <h1 class="card-title">Editar Credenciais</h1>
+            <p class="card-description">Atualize o nome, e-mail ou a senha deste usuário.</p>
+            
+            <form action="#" method="POST" class="form-edit">
+                <div class="form-group">
+                    <input type="text" id="edit-nome" class="form-control" placeholder="Nome Completo do Usuário" required>
+                    <i class='bx bxs-user form-icon'></i>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="edit-email" class="form-control" placeholder="E-mail do Usuário" value="arthur@email.com" required>
+                    <i class='bx bx-envelope form-icon'></i>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="edit-password" class="form-control" placeholder="Nova Senha (deixe em branco para manter)">
+                    <i class='bx bxs-lock-alt form-icon'></i>
+                    <i class='bx bx-hide toggle-password'></i>
+                </div>
+                
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-cancel" onclick="window.history.back()">Voltar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                </div>
+
+                <button type="button" id="btn-delete" class="btn btn-danger" style="margin-top: 15px;">
+                    <i class='bx bxs-trash'></i> Excluir Usuário
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer-conteudo">
+            <ul class="footer-lista">
+                <li><a href="inicio.html" class="footer-link">Inicio</a></li>
+                <li><a href="abertura-chamado.html" class="footer-link">Abrir Chamado</a></li>
+                <li><a href="acompanhar-chamados.html" class="footer-link">Acompanhar Chamados</a></li>
+                <li><a href="ajuda.html" class="footer-link">Ajuda</a></li>
+                <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
+            </ul>
+        </div>
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
+    </footer>
+    <script type="module" src="../scripts/proteger-admin.js"></script>
+    <script type="module" src="../scripts/editar-usuario.js"></script>
+    <script type="module" src="../scripts/toggle-password.js"></script>
+    <script type="module" src="../scripts/logout.js"></script>
+</body>
+</html>

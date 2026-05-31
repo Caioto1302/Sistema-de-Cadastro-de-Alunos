@@ -1,108 +1,39 @@
-@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
-@import url('https://fonts.cdnfonts.com/css/beyonders');
+/*
+Utilize este arquivo apenas para ajustes exclusivos da página de redefinir senha.
+Todo o restante do visual (cores, fontes, botões) é herdado do global.css.
+*/
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+.card-icon {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    background: #fff;
+    margin-bottom: 1.5rem;
 }
 
-.navbar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 35px;
-    letter-spacing: 0.5px;
+.card-icon i {
+    font-size: 3rem;
+    color: var(--accent-yellow);
 }
 
-.navbar p{
-    font-family: 'Beyonders', sans-serif;
-    font-size: 20px;
+/* Ajuste no título para se adequar ao novo layout com ícone e descrição */
+.card-title {
+    font-size: 1.75rem; /* 28px, um pouco menor que o global de 32px */
+    margin-bottom: 0.5rem; /* Menor que o global de 30px */
 }
 
-.formulario {
-    width: 500px;
-    background-color: #D9D9D9;
-    border: 1px solid rgba(128, 128, 129, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(128, 128, 129, 0.2);
-    color: #000000;
-    border-radius: 16px;
-    padding: 35px;
-    font-weight: 500;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.formulario h1 {
-    font-size: 30px;
+.card-description {
     text-align: center;
-    margin-bottom: 30px;
-    font-weight: 900;
-    font-family: 'Open Sauce One';
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
-.caixa-formulario {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.caixa-formulario input {
-    width: 100%;
-    height: 50px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    color: #000000;
-    background-color: #fff;
-    font-size: 16px;
-    padding: 0 20px ;
+/* Centraliza os links extras, já que só temos um */
+.links-extras {
+    display: block; /* Sobrescreve o 'display: flex' do global.css */
     text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
 }
 
-.caixa-formulario i {
-    position: absolute;
-    left: 20px;
-    font-size: 20px;
-    top: 15px;
-    color: #555;
-}
-
-button {
-    width: 100%;
-    height: 45px;
-    background-color: rgba(128, 128, 129, 0.2);
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
+.links-extras a {
     font-weight: 600;
-    border: none;
-    margin-top: -5px;
-}
-
-.outrapag {
-    display: flex;
-    gap: 120px;
-    margin-top: 10px;
-    font-size: 15px;
-}
-
-.outrapag a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-
-.outrapag a:hover {
-    text-decoration: underline;
 }

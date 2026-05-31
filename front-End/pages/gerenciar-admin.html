@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de chamados</title>
+    <title>Gerenciamento de Chamados - Admin</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/gerenciar-admin.css">
-    <script src="../scripts/proteger-admin.js"></script>
+    <script type="module" src="../scripts/proteger-admin.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="inicio.html" class="nav-logo">UniClass</a>
+            <a href="inicio.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+                <i class='bx bxs-graduation' style="color:var(--accent-yellow);font-size:2.2rem;"></i>
+                UniClass
+            </a>
             <ul class="nav-menu">
-                <li class="nav-pag"><a href="#">Gerenciamento (admin)</a></li>
+                <li class="nav-sub-item">
+                    <a href="#" class="active">Admin <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li><a href="gerenciar-admin.html">Gerenciar Chamados</a></li>
+                        <li><a href="gerenciar-usuarios.html">Gerenciar Usuários</a></li>
+                    </ul>
+                </li>
                 <li class="nav-sub-item">
                     <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
                     <ul class="nav-submenu">
@@ -20,20 +31,34 @@
                         <li class="nav-sub-chamados"><a href="acompanhar-chamados.html">Acompanhar Chamados</a></li>
                     </ul>
                 </li>
-                <li class="nav-pag"><a href="sobre-nos.html" class="">Sobre Nós</a></li>
-                <li class="nav-pag"><a href="ajuda.html" class="">Ajuda</a></li>
+                <li class="nav-pag"><a href="sobre-nos.html">Sobre Nós</a></li>
+                <li class="nav-pag"><a href="ajuda.html">Ajuda</a></li>
                 <li class="nav-pag"><a href="#" id="logout-link">Sair</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="container">
-            <h1 class="titulo">GERENCIAR CHAMADOS</h1>
+        <div class="page-header">
+            <h1 class="page-title">Painel do Administrador</h1>
+            <p class="page-description">Gerencie todos os chamados abertos no sistema.</p>
+        </div>
 
-            <div id="chamados" class="chamados">
-
-            </div>
+        <div id="chamados" class="chamados-grid">
+            <!-- 
+                Exemplo de como o card do chamado deve ser gerado pelo JavaScript para o Admin.
+                
+                <div class="chamado-card">
+                    <div class="chamado-header">
+                        <h3 class="chamado-titulo">Problema com a nota da P1</h3>
+                        <span class="chamado-status status-aberto">Aberto</span>
+                    </div>
+                    <p class="chamado-autor">Aberto por: Arthur Andrade (arthur@email.com)</p>
+                    <p class="chamado-id">#12345</p>
+                    <p class="chamado-data">Criado em: 30/05/2026</p>
+                    <a href="detalhes-chamado.html?id=1" class="btn-details">Gerenciar Chamado <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            -->
         </div>
     </main>
 
@@ -47,14 +72,10 @@
                 <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
             </ul>
         </div>
-        <div id="footer-copyright">
-            UniClass
-            &#169
-            2025 all rights reserved
-        </div>
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
     </footer>
 
-    <script src="../scripts/gerenciar-admin.js"></script>
-    <script src="../scripts/logout.js"></script>
+    <script type="module" src="../scripts/gerenciar-admin.js"></script>
+    <script type="module" src="../scripts/logout.js"></script>
 </body>
 </html>

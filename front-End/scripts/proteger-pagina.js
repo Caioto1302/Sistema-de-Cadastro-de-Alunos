@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
 document.addEventListener('DOMContentLoaded', () => {
   const paginasLivres = [
-    'login.html',
+    'index.html',
+    '', // Permite o acesso à raiz do site pelo Vite (http://localhost:5173/)
     'cadastro.html',
     'recuperar-senha.html',
     'redefinir-senha.html',
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!paginasLivres.includes(paginaAtual)) {
     const token = localStorage.getItem('token')
     if (!token) {
-      window.location.href = 'login.html'
+      window.location.href = '/index.html'
     }
   }
 })

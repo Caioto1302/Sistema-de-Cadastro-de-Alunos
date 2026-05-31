@@ -1,5 +1,5 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-undef */
+import { API_BASE_URL } from './config.js';
+
 document.querySelector('#chamado-form').addEventListener('submit', async (event) => {
   event.preventDefault()
 
@@ -9,7 +9,7 @@ document.querySelector('#chamado-form').addEventListener('submit', async (event)
   try {
     const token = localStorage.getItem('token')
 
-    const response = await fetch('http://localhost:5000/chamados', {
+    const response = await fetch(`${API_BASE_URL}/chamados`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

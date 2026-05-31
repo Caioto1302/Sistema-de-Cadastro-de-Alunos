@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abertura de Chamado</title>
+    <title>Abertura de Chamado - UniClass</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/abertura-chamado.css">
-    <script src="../scripts/proteger-pagina.js"></script>
+    <script type="module" src="../scripts/proteger-pagina.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="inicio.html" class="nav-logo">UniClass</a>
+            <a href="inicio.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+                <i class='bx bxs-graduation' style="color:var(--accent-yellow);font-size:2.2rem;"></i>
+                UniClass
+            </a>
 
             <ul class="nav-menu">
-                <li class="nav-pag"><a href="gerenciar-admin.html">Gerenciamento (admin)</a></li>
+                <li class="nav-sub-item">
+                    <a href="#">Admin <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li><a href="gerenciar-admin.html">Gerenciar Chamados</a></li>
+                        <li><a href="gerenciar-usuarios.html">Gerenciar Usuários</a></li>
+                    </ul>
+                </li>
                 <li class="nav-sub-item">
                     <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
                     <ul class="nav-submenu">
-                        <li class="nav-sub-chamados"><a href="#">Abrir Chamado</a></li>
+                        <li class="nav-sub-chamados"><a href="#" class="active">Abrir Chamado</a></li>
                         <li class="nav-sub-chamados"><a href="acompanhar-chamados.html">Acompanhar Chamados</a></li>
                     </ul>
                 </li>
@@ -29,26 +39,27 @@
         </nav>
     </header>
 
-    <main>
-        <div class="container">
+    <main class="main-form">
+        <div class="card">
+            <div class="card-icon">
+                <i class='bx bxs-file-plus'></i>
+            </div>
+            <h1 class="card-title">Abrir Novo Chamado</h1>
+            <p class="card-description">
+                Descreva seu problema ou solicitação em detalhes para que possamos ajudar.
+            </p>
             <form id="chamado-form">
-                <h1>ABRIR CHAMADO</h1>
-
-                <div class="input-group">
-                    <div class="input-box">
-                        <label for="titulo">Titulo do Chamado</label>
-                        <input id="titulo" type="text" name="titulo" placeholder="Digite o titulo" required>
-                    </div>
-
-                    <div class="input-box">
-                        <label for="descricao">Descrição do Problema</label>
-                        <textarea id="descricao" type="text" name="descricao" placeholder="Digite o problema" required></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="titulo">Título do Chamado</label>
+                    <input id="titulo" type="text" name="titulo" class="form-control" placeholder="Ex: Problema com a nota da P1" required>
                 </div>
-                <button type="submit">Enviar</button>
+                <div class="form-group">
+                    <label for="descricao">Descrição do Problema</label>
+                    <textarea id="descricao" name="descricao" class="form-control" placeholder="Descreva detalhadamente o que está acontecendo..." required rows="6"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Chamado</button>
+            </form> 
         </div>
-
-        </form> 
     </main>
 
     <footer>
@@ -62,15 +73,10 @@
             </ul>
         </div>
         
-        <div id="footer-copyright">
-            UniClass
-            &#169
-            2025 all rights reserved
-        </div>
-
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
     </footer>
     
-    <script src="../scripts/abertura-chamado.js"></script>
-    <script src="../scripts/logout.js"></script>
+    <script type="module" src="../scripts/abertura-chamado.js"></script>
+    <script type="module" src="../scripts/logout.js"></script>
 </body>
 </html>

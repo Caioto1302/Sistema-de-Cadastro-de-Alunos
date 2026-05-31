@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uniclass (Sistemas de Chamados)</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/inicio.css">
-    <script src="../scripts/proteger-pagina.js"></script>
+    <script type="module" src="../scripts/proteger-pagina.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="#" class="nav-logo">UniClass</a>
-            
+            <a href="inicio.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+                <i class='bx bxs-graduation' style="color:var(--accent-yellow);font-size:2.2rem;"></i>
+                UniClass
+            </a>
             <ul class="nav-menu">
-                <li class="nav-pag"><a href="gerenciar-admin.html">Gerenciamento (admin)</a></li>
+                <li class="nav-sub-item">
+                    <a href="#">Admin <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li><a href="gerenciar-admin.html">Gerenciar Chamados</a></li>
+                        <li><a href="gerenciar-usuarios.html">Gerenciar Usuários</a></li>
+                    </ul>
+                </li>
                 <li class="nav-sub-item">
                     <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
                     <ul class="nav-submenu">
@@ -30,40 +39,56 @@
     </header>
 
     <main>
-        <h1 class="titulo">UNICLASS</h1>
-        <div class="container">
-            <h2>Bem vindos ao Sistema de Chamados Estudantis!</h2>
-            <p>Aqui em nosso site, você pode abrir e acompanhar seus chamados com tema educacional.</p>
-            <div class="botoes">
-                <div class="botao">
-                    <a href="abertura-chamado.html">Abrir Novo Chamado</a>
-                    <p>Fale e desenvolva sobre seu problema</p>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <i class='bx bxs-graduation'></i>
                 </div>
-                <div class="botao">
-                    <a href="acompanhar-chamados.html">Meus Chamados</a>
-                    <p>Verifique o status dos seus chamados</p>
+                <h1 class="titulo">Bem-vindo ao <span class="uniclass-highlight">UniClass</span></h1>
+                <p class="hero-desc">
+                    O sistema de chamados estudantis feito para facilitar sua vida acadêmica.<br>
+                    Abra, acompanhe e resolva suas demandas de forma simples, rápida e organizada.
+                </p>
+                <div class="hero-actions">
+                    <a href="abertura-chamado.html" class="btn btn-primary hero-btn">
+                        <i class='bx bx-plus-circle'></i> Abrir Novo Chamado
+                    </a>
+                    <a href="acompanhar-chamados.html" class="btn btn-secondary hero-btn">
+                        <i class='bx bx-list-ul'></i> Meus Chamados
+                    </a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="cards-destaque">
+            <div class="card-destaque">
+                <i class='bx bx-bulb'></i>
+                <h3>Fácil de Usar</h3>
+                <p>Interface intuitiva, navegação simples e tudo ao alcance de poucos cliques.</p>
+            </div>
+            <div class="card-destaque">
+                <i class='bx bx-shield-quarter'></i>
+                <h3>Seguro & Privado</h3>
+                <p>Seus dados protegidos e chamados visíveis apenas para você e a equipe responsável.</p>
+            </div>
+            <div class="card-destaque">
+                <i class='bx bx-time-five'></i>
+                <h3>Acompanhamento em Tempo Real</h3>
+                <p>Receba atualizações e respostas diretamente no sistema e por e-mail.</p>
+            </div>
+        </section>
     </main>
     
     <footer>
-        <div id="footer-conteudo">
-            <ul class="footer-lista">
-                <li><a href="#" class="footer-link">Inicio</a></li>
-                <li><a href="abertura-chamado.html" class="footer-link">Abrir Chamado</a></li>
-                <li><a href="acompanhar-chamados.html" class="footer-link">Acompanhar Chamados</a></li>
-                <li><a href="ajuda.html" class="footer-link">Ajuda</a></li>
-                <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
-            </ul>
-        </div>
-        <div id="footer-copyright">
-            UniClass
-            &#169
-            2025 all rights reserved
-        </div>
+        <ul class="footer-lista">
+            <li><a href="#" class="footer-link">Início</a></li>
+            <li><a href="abertura-chamado.html" class="footer-link">Abrir Chamado</a></li>
+            <li><a href="acompanhar-chamados.html" class="footer-link">Acompanhar Chamados</a></li>
+            <li><a href="ajuda.html" class="footer-link">Ajuda</a></li>
+            <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
+        </ul>
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
     </footer>
-
-    <script src="../scripts/logout.js"></script>
+    <script type="module" src="../scripts/logout.js"></script>
 </body>
 </html>

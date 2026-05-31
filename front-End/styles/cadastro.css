@@ -1,132 +1,14 @@
-@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
-@import url('https://fonts.cdnfonts.com/css/beyonders');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: 0;    
+/* Ajustes exclusivos da página de cadastro */
+.card {
+    max-width: 600px; /* Card de cadastro é mais largo para os campos extras */
 }
 
-body {
+.form-group-inline {
     display: flex;
+    gap: 1rem;
+}
+
+/* Centraliza o link único "Faça o login" */
+.links-extras {
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    background: #fff;
-    position: relative;
-}
-
-.navbar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 35px;
-    letter-spacing: 0.5px;
-}
-
-.navbar p{
-    font-family: 'Beyonders', sans-serif;
-    font-size: 20px;
-}
-
-.container {
-    width: 500px;
-    background-color: #D9D9D9;
-    border: 1px solid rgba(128, 128, 129, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(128, 128, 129, 0.2);
-    color: #000000;
-    border-radius: 16px;
-    padding: 35px;
-    font-weight: 500;
-    font-family: 'Open Sauce One';
-}
-
-.container h1 {
-    font-size: 35px;
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: 900;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    
-}
-
-.name-fields {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-}
-
-.name-fields .input-box {
-    flex: 1;             
-}
-
-.input-box {
-    flex: 1;
-    min-width: 150px;
-}
-
-.input-box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.1rem;
-}
-
-.input-box input {
-    margin: 0.6rem 1.5;
-    padding: 0.8rem 1.2rem 0.8rem 35px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 6px #0000001c;
-    text-align: center;
-}
-
-
-.input-box i {
-    position: absolute;
-    left: 12px; 
-    top: 50%;
-    transform: translateY(-50%);
-    color: #555;
-    font-size: 18px; 
-}
-
-.input-box ::placeholder{
-    font-size: 15px;
-}
-
-button {
-    width: 100%;
-    height: 45px;
-    background-color: rgba(128, 128, 129, 0.2);
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-}
-
-.login {
-    display: flex;
-    gap: 126px;
-    margin-top: 13px;
-    font-size: 15px;
-}
-
-.login a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-
-.login a:hover {
-    text-decoration: underline;
 }

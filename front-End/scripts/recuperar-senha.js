@@ -1,11 +1,12 @@
-/* eslint-disable no-undef */
+import { API_BASE_URL } from './config.js';
+
 document
   .querySelector('#recuperar-form')
   .addEventListener('submit', async (event) => {
     event.preventDefault()
     const email = document.querySelector('#email').value
     try {
-      const response = await fetch('http://localhost:5000/recuperar-senha', {
+      const response = await fetch(`${API_BASE_URL}/recuperar-senha`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

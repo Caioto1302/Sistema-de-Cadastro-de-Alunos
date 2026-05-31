@@ -1,202 +1,127 @@
 @import url('https://fonts.cdnfonts.com/css/open-sauce-one');
 @import url('https://fonts.cdnfonts.com/css/beyonders');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #fff;
-    height: 100%;
-}
-
-main {
-    flex: 1;
-}
-
-.navbar {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 35px;
-    letter-spacing: 0.5px;
-    background-color: #D9D9D9;
-}
-.nav-logo {
-    font-size: 20px;
-    font-family: 'Beyonders', sans-serif;
-    text-decoration: none;
-    color: #000000;
-} 
-
-.nav-menu {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    gap: 1.3rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu > li > a {
-    font-size: 20px;
-    font-weight: 650;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-    color: #000000;
-    padding: 0.5rem 1rem;
-    transition: background 0.1s;
-}
-
-.nav-menu > li > a:hover {
-    background: #c0c0c0; 
-    border-radius: 6px;
-}
-
-.nav-submenu {
-    list-style-type: none;
-    display: none;
-    position: absolute;
-    background: #D9D9D9;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-top: 0.3rem;
-    min-width: 180px;
-    z-index: 100;
-    padding: 0.5rem 0 0.5rem 0;
-    min-width: unset;
-}
-
-.nav-sub-item {
-    position: relative;
-}
-
-.nav-sub-item:hover .nav-submenu {
-    display: block;
-}
-
-.nav-sub-chamados a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #000;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.nav-sub-chamados a:hover {
-    background: #c0c0c0;
-    border-radius: 6px;
-}
-
-.central-ajuda {
+/* Hero da Ajuda */
+.ajuda-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    max-width: 1100px;
-    margin: 180px auto 0 auto;
-    padding: 60px 40px 60px 40px;
-    background: #D9D9D9;
-    border-radius: 18px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-    min-height: 35vh;
-}
-
-.central-ajuda h1 {
-    font-size: 55px;
-}
-
-.central-ajuda h1,
-.central-ajuda h2 {
-    text-align: center;
-    font-family: 'Open Sauce One';
-    color: #050505;
+    justify-content: center;
+    padding: 40px 0 20px 0;
+    background: linear-gradient(120deg, var(--bg-secondary) 60%, var(--bg-primary) 100%);
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
     margin-bottom: 30px;
 }
 
-.central-ajuda h3 {
-    color: #000000;
+.ajuda-hero i {
+    font-size: 3.5rem;
+    color: var(--accent-yellow);
+    margin-bottom: 10px;
+}
+
+.ajuda-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--accent-yellow);
     margin-bottom: 8px;
-    
+    letter-spacing: 1.5px;
 }
 
-.central-ajuda section {
-    width: 100%;
+.ajuda-highlight {
+    color: var(--accent-red);
+    font-weight: bold;
 }
 
-.about-introducao-texto {
+.ajuda-desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 600px;
+}
+
+/* FAQ Cards */
+.ajuda-faq {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
-    margin: 24px 0;
-    box-shadow: none;
-    border: 1.5px solid #ececec;
-    border-radius: 14px;
-    background: #fff;
-    padding: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.about-introducao-texto p {
-    padding-left: 10px;
-}
-
-.about-introducao {
-    flex: 1;
-    text-align: left;
-}
-
-footer {
-    justify-content: space-between;
-    width: 100%; 
-    top: 0;
-    left: 0;
-    margin-top: 8rem;
-    padding: 1rem 1.5rem;
-    background-color: #D9D9D9;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
- 
-
-.footer-lista {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1rem;
-    list-style: none;
-}
-
-.footer-link {
-    color: rgb(0, 0, 0);
-    transition: all 0.4s;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: #000000;
-}
-
-#footer-copyright {
-    display: flex;
+    gap: 24px;
     justify-content: center;
-    color:  #000000;
-    font-size: 0.9rem;
-    padding: 2rem 0 0.5rem 0;
-    font-weight: 150;
+    flex-wrap: wrap;
+    margin: 0 auto 30px auto;
+    max-width: 900px;
+}
+
+.faq-card {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    padding: 28px 22px;
+    min-width: 220px;
+    max-width: 320px;
+    flex: 1 1 220px;
+    text-align: left;
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.faq-card h3 {
+    color: var(--accent-yellow);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-family: var(--font-title);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.faq-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.faq-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(251,191,36,0.10);
+}
+
+/* Contato */
+.ajuda-contato {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 600px;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 28px 22px;
+    box-shadow: var(--shadow-card);
+}
+
+.ajuda-contato h2 {
+    color: var(--accent-yellow);
+    font-family: var(--font-title);
+    margin-bottom: 8px;
+}
+
+.ajuda-contato p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.ajuda-contato i {
+    color: var(--accent-yellow);
+    margin-right: 4px;
+}
+
+@media (max-width: 900px) {
+    .ajuda-faq {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .faq-card {
+        max-width: 95vw;
+    }
+    .ajuda-hero {
+        padding: 30px 0 10px 0;
+    }
 }

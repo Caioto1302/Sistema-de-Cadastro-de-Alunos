@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+import { API_BASE_URL } from './config.js';
+
 document
   .querySelector('#login-form')
   .addEventListener('submit', async (event) => {
@@ -8,7 +9,7 @@ document
     const senha = document.querySelector('#password').value
 
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,7 +23,7 @@ document
 
         localStorage.setItem('token', data.token)
 
-        window.location.href = 'inicio.html'
+        window.location.href = '/pages/inicio.html'
       } else {
         const error = await response.json()
         alert(`Erro: ${error.message}`)

@@ -12,6 +12,14 @@ export async function buscaChamados(request: FastifyRequest) {
       orderBy: {
         dataCriacao: 'asc',
       },
+      include: {
+        usuarios: {
+          select: {
+            nome: true,
+            email: true
+          }
+        }
+      }
     })
 
     if (chamados.length === 0) {
@@ -22,6 +30,14 @@ export async function buscaChamados(request: FastifyRequest) {
       orderBy: {
         dataCriacao: 'asc',
       },
+      include: {
+        usuarios: {
+          select: {
+            nome: true,
+            email: true
+          }
+        }
+      }
     })
 
     if (chamados.length === 0) {

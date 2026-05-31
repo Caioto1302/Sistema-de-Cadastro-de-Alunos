@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre Nós</title>
+    <title>Sobre Nós - UniClass</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/sobre-nos.css">
-    <script src="../scripts/proteger-pagina.js"></script>
+    <script type="module" src="../scripts/proteger-pagina.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="inicio.html" class="nav-logo">UniClass</a>
+            <a href="inicio.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+                <i class='bx bxs-graduation' style="color:var(--accent-yellow);font-size:2.2rem;"></i>
+                UniClass
+            </a>
             
             <ul class="nav-menu">
-                <li class="nav-pag"><a href="gerenciar-admin.html">Gerenciamento (admin)</a></li>
+                <li class="nav-sub-item">
+                    <a href="#">Admin <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li><a href="gerenciar-admin.html">Gerenciar Chamados</a></li>
+                        <li><a href="gerenciar-usuarios.html">Gerenciar Usuários</a></li>
+                    </ul>
+                </li>
                 <li class="nav-sub-item">
                     <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
                     <ul class="nav-submenu">
@@ -22,7 +32,7 @@
                         <li class="nav-sub-chamados"><a href="acompanhar-chamados.html">Acompanhar Chamados</a></li>
                     </ul>
                 </li>
-                <li class="nav-pag"><a href="#">Sobre Nós</a></li>
+                <li class="nav-pag"><a href="#" class="active">Sobre Nós</a></li>
                 <li class="nav-pag"><a href="ajuda.html">Ajuda</a></li>
                 <li class="nav-pag"><a href="#" id="logout-link">Sair</a></li>
             </ul>
@@ -31,22 +41,21 @@
 
     <main>
         <section class="about-introducao">
-            <div class="about-introducao-texto">
-                <h2>Quem somos nós?</h2>
-                <p>
-                    Este é um projeto acadêmico feito por estudantes de Sistemas de Informação no 3º período do curso. Nosso objetivo aqui foi desenvolver um sistema que permite a criação de chamados de contexto estudantil e educacional, simulando um portal de uma instituição escolar/universitária. Este projeto também foi usado para testar e aplicar nossos conceitos e habilidades que envolvem programação front/back-end, além de SQL.
-                </p>
-            </div>
+            <h2>Quem somos nós?</h2>
+            <p>
+                Este é um projeto acadêmico feito por estudantes de Sistemas de Informação no 3º período do curso. Nosso objetivo aqui foi desenvolver um sistema que permite a criação de chamados de contexto estudantil e educacional, simulando um portal de uma instituição escolar/universitária. Este projeto também foi usado para testar e aplicar nossos conceitos e habilidades que envolvem programação front/back-end, além de SQL.
+            </p>
         </section>
 
+        <h2 class="about-equipe-titulo">Nossa Equipe</h2>
         <section class="about-equipe">
             <div class="about-membro">
                 <img src="../img/arthur-andrade.png" alt="Foto de Arthur Andrade" />
                 <h4>Arthur Andrade</h4>
                 <p>Estudante de TI</p>
                 <div class="about-icon">
-                    <a href="https://www.instagram.com/arth_szz/" target="_blank"><i class="bx bxl-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/arthur-souza-de-andrade-b30a4122b/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://www.instagram.com/arth_szz/" target="_blank" aria-label="Instagram de Arthur Andrade"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.linkedin.com/in/arthur-souza-de-andrade-b30a4122b/" target="_blank" aria-label="LinkedIn de Arthur Andrade"><i class='bx bxl-linkedin'></i></a>
                 </div>
             </div>
 
@@ -55,8 +64,8 @@
                 <h4>Caio César</h4>
                 <p>Estudante de TI</p>
                 <div class="about-icon">
-                    <a href="https://www.instagram.com/caioto1302/" target="_blank"><i class="bx bxl-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/caio-césar-andrade-da-silva-506467306/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://www.instagram.com/caioto1302/" target="_blank" aria-label="Instagram de Caio César"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.linkedin.com/in/caio-césar-andrade-da-silva-506467306/" target="_blank" aria-label="LinkedIn de Caio César"><i class='bx bxl-linkedin'></i></a>
                 </div>
             </div>
 
@@ -65,8 +74,8 @@
                 <h4>Marcus Mesquita</h4>
                 <p>Estudante de TI</p>
                 <div class="about-icon">
-                    <a href="https://www.instagram.com/marcusanjos01" target="_blank"><i class="bx bxl-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/marcus-vinícius-mesquita-dos-santos-8a1920333/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://www.instagram.com/marcusanjos01" target="_blank" aria-label="Instagram de Marcus Mesquita"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.linkedin.com/in/marcus-vinícius-mesquita-dos-santos-8a1920333/" target="_blank" aria-label="LinkedIn de Marcus Mesquita"><i class='bx bxl-linkedin'></i></a>
                 </div>
             </div>
 
@@ -75,7 +84,7 @@
                 <h4>Rodrigo Barbosa</h4>
                 <p>Estudante de TI</p>
                 <div class="about-icon">
-                    <a href="https://www.instagram.com/rodr11go_25/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.instagram.com/rodr11go_25/" target="_blank" aria-label="Instagram de Rodrigo Barbosa"><i class='bx bxl-instagram'></i></a>
                 </div>
             </div>
         </section>
@@ -92,14 +101,9 @@
             </ul>
         </div>
         
-        <div id="footer-copyright">
-            UniClass
-            &#169
-            2025 all rights reserved
-        </div>
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
     </footer>
 
-    <script src="../scripts/sobre-nos.js"></script>
-    <script src="../scripts/logout.js"></script>
+    <script type="module" src="../scripts/logout.js"></script>
 </body>
 </html>

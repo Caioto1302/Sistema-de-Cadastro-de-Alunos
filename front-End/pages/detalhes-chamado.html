@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do chamado</title>
+    <title>Detalhes do Chamado - UniClass</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/detalhes-chamado.css">
-    <script src="../scripts/proteger-pagina.js"></script>
+    <script type="module" src="../scripts/proteger-pagina.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="inicio.html" class="nav-logo">UniClass</a>
+            <a href="inicio.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+                <i class='bx bxs-graduation' style="color:var(--accent-yellow);font-size:2.2rem;"></i>
+                UniClass
+            </a>
             
             <ul class="nav-menu">
-                <li class="nav-pag"><a href="gerenciar-admin.html">Gerenciamento (admin)</a></li>
+                <li class="nav-sub-item">
+                    <a href="#">Admin <i class='bx bx-chevron-down arrow-down'></i></a>
+                    <ul class="nav-submenu">
+                        <li><a href="gerenciar-admin.html">Gerenciar Chamados</a></li>
+                        <li><a href="gerenciar-usuarios.html">Gerenciar Usuários</a></li>
+                    </ul>
+                </li>
                 <li class="nav-sub-item">
                     <a href="#" class="nav-chamados">Chamados <i class='bx bx-chevron-down arrow-down'></i></a>
                     <ul class="nav-submenu">
                         <li class="nav-sub-chamados"><a href="abertura-chamado.html">Abrir Chamado</a></li>
-                        <li class="nav-sub-chamados"><a href="acompanhar-chamados.html">Acompanhar Chamados</a></li>
+                        <li class="nav-sub-chamados"><a href="acompanhar-chamados.html" class="active">Acompanhar Chamados</a></li>
                     </ul>
                 </li>
                 <li class="nav-pag"><a href="sobre-nos.html">Sobre Nós</a></li>
@@ -30,16 +40,28 @@
     </header>
 
     <main>
-        <div class="container">
-            <h1 class="titulo">Detalhes</h1>
+        <div class="grid-container">
+            <!-- Coluna da Esquerda: Detalhes e Status -->
+            <aside class="sidebar">
+                <div id="detalhes-chamado-lista"></div>
+                
+                <div class="actions-footer">
+                    <button id="deletar-chamado-btn" class="btn btn-danger">
+                        <i class='bx bxs-trash'></i> Excluir Chamado
+                    </button>
+                </div>
+            </aside>
 
-            <div id="detalhes-chamado-lista"></div>
-
-            <h2 class="titulo">Respostas</h2>
-
-            <div id="respostas-lista"></div>
-
-            <button id="deletar-chamado-btn">Excluir chamado</button>
+            <!-- Coluna da Direita: Respostas e Interações -->
+            <section class="content">
+                <div class="respostas-section">
+                    <h2 class="section-title">
+                        <i class='bx bxs-conversation'></i>
+                        Respostas e Interações
+                    </h2>
+                    <div id="respostas-lista"></div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -53,14 +75,10 @@
                 <li><a href="sobre-nos.html" class="footer-link">Sobre nós</a></li>
             </ul>
         </div>
-        <div id="footer-copyright">
-            UniClass
-            &#169
-            2025 all rights reserved
-        </div>
+        <div id="footer-copyright">&copy; 2026 UniClass. Todos os direitos reservados.</div>
     </footer>
 
-    <script src="../scripts/detalhes-chamado.js"></script>
-    <script src="../scripts/logout.js"></script>
+    <script type="module" src="../scripts/detalhes-chamado.js"></script>
+    <script type="module" src="../scripts/logout.js"></script>
 </body>
 </html>

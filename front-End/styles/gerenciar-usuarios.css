@@ -1,0 +1,94 @@
+/* CSS Específico para Gerenciar Usuários, complementando o global.css */
+
+.page-header {
+    text-align: center;
+    margin: 2.5rem 0;
+    padding: 0 1rem;
+}
+
+.page-title {
+    font-family: var(--font-title);
+    color: var(--accent-yellow);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.page-description {
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+/* Alinhamento em coluna (flex-col) para a lista */
+.user-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 0 20px;
+}
+
+/* Alinhamento em linha (flex-row) para os itens do card */
+.user-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.3s;
+}
+
+.user-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-yellow);
+}
+
+/* Alinhamento em coluna (flex-col) para os textos de info */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-name {
+    font-family: var(--font-title);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.user-email {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.user-role {
+    font-size: 12px;
+    background: var(--bg-hover);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--accent-yellow);
+    align-self: flex-start;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.user-actions {
+    color: var(--accent-yellow);
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.user-card:hover .user-actions {
+    background-color: var(--bg-hover);
+}
