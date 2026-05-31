@@ -28,5 +28,11 @@ Abaixo estão registradas as principais alterações realizadas no sistema UniCl
 **Descrição:** Adição da funcionalidade de visibilidade da senha (Revelar/Esconder).
 **Itens impactados:** Páginas de login (`index.html`), cadastro (`cadastro.html`) e redefinição de senha (`redefinir-senha.html`); criação do script `toggle-password.js`.
 **Motivo:** Melhorar a usabilidade nos formulários de autenticação, permitindo que o usuário verifique o que digitou e evite erros de preenchimento.
-**Impacto:** Redução de falhas de login por erros de digitação e melhora na percepção de segurança e controle por parte do usuário final.
+---
+
+### Mudança 4
+**Descrição:** Atualização e expansão do pipeline de Integração Contínua (CI).
+**Itens impactados:** Arquivo `.github/workflows/ci.yml`.
+**Motivo:** Automatizar a validação técnica do projeto, garantindo que novas alterações não quebrem o build do front-end ou a inicialização do back-end, além de padronizar a instalação de dependências em ambiente de nuvem.
+**Impacto:** Aumento da confiabilidade do código através de testes automatizados de build em cada push, prevenindo erros em produção e assegurando que as dependências de ambas as frentes (Back e Front) estejam sempre compatíveis.
 **Status:** Concluído.
