@@ -111,10 +111,10 @@ Status: Concluído
 Status: Concluído
 
 Mudança 4:
-Descrição: Atualização e expansão do pipeline de Integração Contínua (CI).
-Itens impactados: Arquivo .github/workflows/ci.yml.
-Motivo: Automatizar a validação técnica do projeto, garantindo que novas alterações não quebrem o build do front-end ou a inicialização do back-end, além de padronizar a instalação de dependências em ambiente de nuvem.
-Impacto: Aumento da confiabilidade do código através de testes automatizados de build em cada push, prevenindo erros em produção e assegurando que as dependências de ambas as frentes (Back e Front) estejam sempre compatíveis.
+- Descrição: Atualização e expansão do pipeline de Integração Contínua (CI).
+- Itens impactados: Arquivo .github/workflows/ci.yml.
+- Motivo: Automatizar a validação técnica do projeto, garantindo que novas alterações não quebrem o build do front-end ou a inicialização do back-end, além de padronizar a instalação de dependências em ambiente de nuvem.
+- Impacto: Aumento da confiabilidade do código através de testes automatizados de build em cada push, prevenindo erros em produção e assegurando que as dependências de ambas as frentes (Back e Front) estejam sempre compatíveis.
 Status: Concluído
 
 
