@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 
 export async function criaUsuario(
   request: FastifyRequest<{
-    Body: { nome: string; sobrenome: string; email: string; senha: string }
+    Body: { nome: string; sobrenome: string; email: string; senha: string; ehAdm?: boolean }
   }>,
 ) {
   const senhaHash = await bcrypt.hash(request.body.senha, 10)
@@ -13,7 +13,8 @@ export async function criaUsuario(
     data: {
       nome: `${request.body.nome} ${request.body.sobrenome}`,
       email: request.body.email,
-      senha: senhaHash, // Idealmente, você deve hash a senha antes de salvar
+      senha: senhaHash,
+      ehAdm: request.body.ehAdm || false,
     },
   })
 

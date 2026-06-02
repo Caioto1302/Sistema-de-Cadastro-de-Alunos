@@ -14,8 +14,10 @@ import { deletaResposta } from '../services/respostas/deletaResposta'
 import { enviaEmail } from '../email_services/enviaEmail'
 
 import { buscaUsuarios } from '../services/usuarios/buscaUsuarios'
+import { criaUsuario } from '../services/usuarios/criaUsuario'
 import { atualizaUsuario } from '../services/usuarios/atualizaUsuario'
 import { deletaUsuario } from '../services/usuarios/deletaUsuario'
+import { prisma } from '../lib/prisma'
 
 export async function adminRotas(app: FastifyInstance) {
   app.register(async (rotasAdmin) => {
@@ -254,10 +256,44 @@ export async function adminRotas(app: FastifyInstance) {
       }
     })
 
-    // PUT - Atualiza nome, e-mail ou senha do usuário
+    // POST - Cria um novo usuário (Admin)
+
+    rotasAdmin.post<{
+      Body: { nome: string; sobrenome: string; email: string; senha: string; ehAdm?: boolean }
+    }>('/usuarios', async (request, reply) => {
+      try {
+        const schema = z.object({
+          nome: z.string().min(1, 'Nome é obrigatório'),
+          sobrenome: z.string().min(1, 'Sobrenome é obrigatório'),
+          email: z.string().email('E-mail inválido'),
+          senha: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres'),
+          ehAdm: z.boolean().optional()
+        })
+        const dadosValidados = schema.parse(request.body)
+
+        const usuarioExistente = await prisma.usuarios.findUnique({
+          where: { email: dadosValidados.email }
+        })
+
+        if (usuarioExistente) {
+          return reply.status(409).send({ message: 'E-mail já cadastrado' })
+        }
+
+        const usuario = await criaUsuario(request as any)
+        return reply.status(201).send(usuario)
+      } catch (err) {
+        if (err instanceof z.ZodError) {
+          return reply.status(400).send({ message: err.errors[0].message })
+        }
+        console.error(err)
+        return reply.status(500).send({ message: 'Erro interno no servidor' })
+      }
+    })
+
+    // PUT - Atualiza nome, e-mail, senha ou role do usuário
 
     rotasAdmin.put<{
-      Body: { nome?: string; email?: string; senha?: string }
+      Body: { nome?: string; email?: string; senha?: string; ehAdm?: boolean }
       Params: { id: string }
     }>('/usuarios/:id', async (request, reply) => {
       try {
@@ -265,7 +301,8 @@ export async function adminRotas(app: FastifyInstance) {
         const schema = z.object({
           nome: z.string().min(3, 'Nome deve ter no mínimo 3 caracteres').optional(),
           email: z.string().email('E-mail inválido').optional(),
-          senha: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres').optional()
+          senha: z.string().min(6, 'Senha deve ter no mínimo 6 caracteres').optional(),
+          ehAdm: z.boolean().optional()
         })
         const dadosValidados = schema.parse(request.body)
 

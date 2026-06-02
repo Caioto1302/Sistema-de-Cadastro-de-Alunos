@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sistema-chamados-backend
+  template:
+    metadata:
+      labels:
+        app: sistema-chamados-backend
+    spec:
+      containers:
+      - name: backend
+        image: arthszz/sistema-chamados-backend:v2
+        ports:
+        - containerPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sistema-chamados-frontend
+  template:
+    metadata:
+      labels:
+        app: sistema-chamados-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: arthszz/sistema-chamados-frontend:v2
+        ports:
+        - containerPort: 80

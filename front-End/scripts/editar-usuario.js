@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const inputNome = document.querySelector('#edit-nome');
   const inputEmail = document.querySelector('#edit-email');
   const inputPassword = document.querySelector('#edit-password');
+  const inputEhAdm = document.querySelector('#edit-eh-adm');
 
   // Buscar detalhes do usuário para popular o form
   try {
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const usuario = await response.json();
     inputNome.value = usuario.nome;
     inputEmail.value = usuario.email;
+    inputEhAdm.value = usuario.ehAdm.toString();
 
   } catch (err) {
     console.error(err);
@@ -51,8 +53,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const novoNome = inputNome.value.trim();
     const novoEmail = inputEmail.value.trim();
     const novaSenha = inputPassword.value.trim();
+    const ehAdm = inputEhAdm.value === 'true';
 
-    const corpoRequisicao = {};
+    const corpoRequisicao = { ehAdm };
     if (novoNome) corpoRequisicao.nome = novoNome;
     if (novoEmail) corpoRequisicao.email = novoEmail;
     if (novaSenha) {
