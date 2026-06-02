@@ -103,7 +103,7 @@ Mudança 2:
 - Impacto: Aumento do controle operacional do sistema, permitindo a gestão direta da base de usuários de forma segura.
 Status: Concluído
 
-- Mudança 3:
+Mudança 3:
 - Descrição: Adição da funcionalidade de visibilidade da senha (Revelar/Esconder).
 - Itens impactados: Páginas de login (index.html), cadastro (cadastro.html) e redefinição de senha (redefinir-senha.html); criação do script toggle-password.js.
 - Motivo: Melhorar a usabilidade nos formulários de autenticação, permitindo que o usuário verifique o que digitou e evite erros de preenchimento.
