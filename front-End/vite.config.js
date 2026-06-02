@@ -18,7 +18,9 @@ export default defineConfig({
         ajuda: resolve(__dirname, 'pages/ajuda.html'),
         sobreNos: resolve(__dirname, 'pages/sobre-nos.html'),
         editarAdmin: resolve(__dirname, 'pages/editar-admin.html'),
-        gerenciarAdmin: resolve(__dirname, 'pages/gerenciar-admin.html')
+        gerenciarAdmin: resolve(__dirname, 'pages/gerenciar-admin.html'),
+        gerenciarUsuarios: resolve(__dirname, 'pages/gerenciar-usuarios.html'),
+        editarUsuario: resolve(__dirname, 'pages/editar-usuario.html')
       },
     },
   },
